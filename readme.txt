@@ -4,7 +4,7 @@ Please use Ubuntu or Kali distribution!
 
 1. Install the following packages:
 pip install Flask
-pip install selenium
+pip install selenium==4.10.0
 sudo apt install chromium-driver (Kali only)
 
 2. Run main.py:

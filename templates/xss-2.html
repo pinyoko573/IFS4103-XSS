@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="card mb-3 w-50">
+    <img src="{{url_for('static', filename='joke.jpg')}}" class="card-img-top" alt="Background">
+    <div class="card-body">
+      <h5 class="card-title">Joke of the Day</h5>
+      <p class="card-text">Where did joe go after being lost in a minefield? Everywhere!</p>
+      <p class="card-text"><small class="text-muted">Interesting joke? <a href="/xss-2/friend">Send it to your friends!!</a></small></p>
+      <script>
+        const params = new URL(location.href).searchParams;
+        document.write('<i>' + (params.get('author') ? params.get('author') : "-") + '</i>');
+      </script>
+    </div>
+</div>
+
+{% endblock %}

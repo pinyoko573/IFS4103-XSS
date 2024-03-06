@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<p class="h4">Feedback sent! Your feedback will be read by the admin soon</p>
+<p class="lead">Here is your message:</p>
+
+<div id="msg"></div>
+
+<script src="{{url_for('static', filename='working_script.js')}}"></script>
+<script src="{{url_for('static', filename='custom_script.js')}}"></script>
+<script src="{{url_for('static', filename='purify.min.js')}}"></script>
+<script>
+    let sanitizedInput = DOMPurify.sanitize("{{input|safe}}");
+    document.getElementById('msg').innerHTML = sanitizedInput;
+</script>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div>
+    <p class="lead">Select a friend to send to:</p>
+    <input class="form-check-input" type="radio" id="friend" name="friend" value="tom123" checked>
+    <label class="form-check-label" for="tom123">tom123</label><br>
+</div>
+<div class="mt-2">
+    <label for="Link">Link:</label>
+    <textarea class="form-control" type="text" id="link" name="link" rows="3"></textarea>
+</div>
+<button type="submit" class="btn btn-primary mt-3" value="share" onclick="share()">Submit</button>
+
+<script>
+    function share() {
+        fetch('/xss-2/share', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "link": document.getElementById('link').value,
+                "friend": document.querySelector('input[name="friend"]:checked').value
+            })
+        }).then(() => {
+            alert('Successfully sent. He will view your joke link soon!')
+        })
+    }
+</script>
+
+{% endblock %}

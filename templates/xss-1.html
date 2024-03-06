@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<form method="POST" action="/xss-1/message">
+    <div class="form-group mb-2">
+        <label class="form-label h4">Send a support ticket to Admin here</label>
+        <textarea class="form-control" name="input" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" value="send">Submit</button>
+</form>
+
+{% endblock %}
